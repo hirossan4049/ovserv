@@ -1,24 +1,28 @@
 //
-//  ZennRSS.swift
+//  RSS.swift
 //  observ
 //
-//  Created by unkonow on 2020/11/22.
+//  Created by unkonow on 2020/12/06.
 //
 
 import Foundation
 
 
-class ZennRSS: NSObject, XMLParserDelegate{
+class RSS: NSObject, XMLParserDelegate{
     private var finished: (([Article]) -> ())!
     private var articleList:[Article] = []
     private var nowTag:String = ""
     private var nowArticle: Article!
+    public var type: SiteType = .other
+    
+    init(_ type: SiteType) {
+        self.type = type
+    }
 
     func start(finished: @escaping (([Article]) -> ())){
         self.finished = finished
-        let urlString = "https://zenn.dev/feed"
         
-        guard let url = NSURL(string: urlString) else{
+        guard let url = NSURL(string: self.type.getUrl()) else{
             return
         }
         
@@ -39,7 +43,7 @@ class ZennRSS: NSObject, XMLParserDelegate{
 //        print("開始タグ:" + elementName)
         if elementName == "item"{
             nowArticle = Article()
-            nowArticle.site = .zenn
+            nowArticle.site = self.type
         }
         nowTag = elementName
     }
@@ -50,15 +54,22 @@ class ZennRSS: NSObject, XMLParserDelegate{
         if nowArticle == nil || string == "\n            "{
             return
         }
+        if string == "\n"{
+            return
+        }
+        
         switch nowTag {
         case "title":
-            nowArticle.title = string
+            nowArticle.title += string
         case "link":
             nowArticle.url = string
         case "pubDate":
             nowArticle.date = DateUtils.dateFromString(string: string, format: "EEE, dd MMM yyyy HH:mm:ss Z")
+        case "dc:date":
+            nowArticle.date = ISO8601DateFormatter().date(from: string) ?? Date()
+            
         case "description":
-            nowArticle.preview = string
+            nowArticle.preview += string
         
         default: break
             

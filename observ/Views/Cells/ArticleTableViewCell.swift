@@ -18,8 +18,12 @@ class ArticleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         backView.layer.cornerRadius = 7
         backView.layer.shadowColor = UIColor.darkGray.cgColor
-        self.backgroundColor = .lightGray
-    
+        self.backgroundColor = .none
+        
+        self.backView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.backView.layer.shadowColor = UIColor.black.cgColor
+        self.backView.layer.shadowOpacity = 0.3
+        self.backView.layer.shadowRadius = 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

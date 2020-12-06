@@ -12,13 +12,24 @@ class HomeConductor{
     public var reload:(() -> ())?
     
     
-    func feedGets(){
+    func feedsGet(){
         let zennrss = ZennRSS()
         zennrss.start(finished: feedgetted)
+        let rss = RSS(.hatena)
+        rss.start(finished: feedgetted)
         self.reload?()
+    }
+    
+    func reloadFeeds(){
+        self.feeds = []
+        self.feedsGet()
     }
     
     private func feedgetted(article:[Article]){
         feeds.append(contentsOf: article)
+        feeds.sort {
+            (lhs: Article, rhs: Article) in
+            return lhs.date < rhs.date
+        }
     }
 }

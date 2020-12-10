@@ -55,6 +55,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         cell.descriptionLabel.text = conductor.feeds[indexPath.row].preview
         cell.lineView.backgroundColor = conductor.feeds[indexPath.row].site.lineColor()
         
+        cell.imageView?.image = conductor.feeds[indexPath.row].site.getImage(size: cell.logoSize)
+        
+        print(cell.logoSize)
+        print(cell.imageView?.image?.size)
+        
         cell.selectionStyle = .none
         return cell
     }

@@ -40,7 +40,7 @@
                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeE-kj-VXk">
-                                <rect key="frame" x="12" y="146.5" width="50" height="18.5"/>
+                                <rect key="frame" x="20" y="144.5" width="50" height="18.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Eex-in-vun"/>
                                     <constraint firstAttribute="height" constant="18.5" id="yrn-O5-Qlc"/>
@@ -51,14 +51,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pql-Ue-1CH" secondAttribute="trailing" constant="16" id="2iU-0S-PmB"/>
                             <constraint firstItem="KfM-9E-QEA" firstAttribute="top" secondItem="pql-Ue-1CH" secondAttribute="bottom" constant="6" id="3uP-iL-rdg"/>
-                            <constraint firstItem="oeE-kj-VXk" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="4" id="5YL-i1-FbL"/>
                             <constraint firstItem="nBd-3Z-P6h" firstAttribute="leading" secondItem="JCv-Ll-twW" secondAttribute="leading" id="5lP-za-SIW"/>
                             <constraint firstAttribute="bottom" secondItem="nBd-3Z-P6h" secondAttribute="bottom" id="AX0-9b-OrX"/>
-                            <constraint firstAttribute="bottom" secondItem="oeE-kj-VXk" secondAttribute="bottom" constant="6" id="CoF-rJ-XUW"/>
                             <constraint firstAttribute="trailing" secondItem="KfM-9E-QEA" secondAttribute="trailing" constant="16" id="Fq1-uq-QCW"/>
+                            <constraint firstAttribute="bottom" secondItem="oeE-kj-VXk" secondAttribute="bottom" constant="8" id="MyT-cl-m63"/>
                             <constraint firstItem="pql-Ue-1CH" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="16" id="Oof-cD-CFc"/>
                             <constraint firstItem="KfM-9E-QEA" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="16" id="Sl0-qZ-HXS"/>
                             <constraint firstItem="pql-Ue-1CH" firstAttribute="top" secondItem="JCv-Ll-twW" secondAttribute="top" constant="16" id="TIn-XT-TLO"/>
+                            <constraint firstItem="oeE-kj-VXk" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="12" id="WTZ-mG-91U"/>
                             <constraint firstItem="nBd-3Z-P6h" firstAttribute="top" secondItem="JCv-Ll-twW" secondAttribute="top" id="x4C-rQ-ak8"/>
                         </constraints>
                     </view>
@@ -75,6 +75,7 @@
                 <outlet property="backView" destination="JCv-Ll-twW" id="gYM-Qq-g4A"/>
                 <outlet property="descriptionLabel" destination="KfM-9E-QEA" id="R6d-41-16S"/>
                 <outlet property="lineView" destination="nBd-3Z-P6h" id="Nc5-0K-oh8"/>
+                <outlet property="logoView" destination="oeE-kj-VXk" id="1y2-8d-YrA"/>
                 <outlet property="titleLabel" destination="pql-Ue-1CH" id="Poq-gu-vhg"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="133.59375"/>

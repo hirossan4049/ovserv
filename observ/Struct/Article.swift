@@ -48,4 +48,14 @@ public enum SiteType{
             return ""
         }
     }
+    
+    func getImage(size: CGSize) -> UIImage{
+        switch self {
+        case .zenn:
+            let img = UIImage(named: "zenn-light")!
+            return img.resize(size: size)!
+        default:
+            return UIImage(named: "zenn-light")!
+        }
+    }
 }

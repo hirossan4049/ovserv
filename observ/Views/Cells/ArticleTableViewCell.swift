@@ -13,6 +13,9 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var logoView: UIImageView!
+    
+    public let logoSize = CGSize(width: 50, height: 18.5)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +27,8 @@ class ArticleTableViewCell: UITableViewCell {
         self.backView.layer.shadowColor = UIColor.black.cgColor
         self.backView.layer.shadowOpacity = 0.3
         self.backView.layer.shadowRadius = 4
+        
+        self.imageView?.backgroundColor = .red
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

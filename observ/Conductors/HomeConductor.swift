@@ -13,10 +13,12 @@ class HomeConductor{
     
     
     func feedsGet(){
-        let zennrss = ZennRSS()
-        zennrss.start(finished: feedgetted)
-        let rss = RSS(.hatena)
-        rss.start(finished: feedgetted)
+        let getArticles:[SiteType] = [.zenn, .hatena]
+        
+        for article in getArticles{
+            let rss = RSS(article)
+            rss.start(finished: feedgetted)
+        }
         self.reload?()
     }
     

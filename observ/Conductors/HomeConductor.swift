@@ -13,7 +13,7 @@ class HomeConductor{
     
     
     func feedsGet(){
-        let getArticles:[SiteType] = [.zenn, .hatena]
+        let getArticles:[Article.SiteType] = [.zenn, .hatena]
         
         for article in getArticles{
             let rss = RSS(article)

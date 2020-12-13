@@ -6,6 +6,7 @@ target 'observ' do
   use_frameworks!
 
   pod 'PTCardTabBar'
+  pod 'Loaf'
   # Pods for observ
 
   target 'observTests' do

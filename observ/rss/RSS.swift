@@ -13,9 +13,9 @@ class RSS: NSObject, XMLParserDelegate{
     private var articleList:[Article] = []
     private var nowTag:String = ""
     private var nowArticle: Article!
-    public var type: SiteType = .other
+    public var type: Article.SiteType = .other
     
-    init(_ type: SiteType) {
+    init(_ type: Article.SiteType) {
         self.type = type
     }
 

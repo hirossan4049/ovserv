@@ -39,13 +39,21 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeE-kj-VXk">
-                                <rect key="frame" x="20" y="144.5" width="50" height="18.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zenn-light" translatesAutoresizingMaskIntoConstraints="NO" id="V90-do-NbL">
+                                <rect key="frame" x="18" y="146.5" width="100" height="18.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Eex-in-vun"/>
-                                    <constraint firstAttribute="height" constant="18.5" id="yrn-O5-Qlc"/>
+                                    <constraint firstAttribute="height" constant="18.5" id="4jM-rC-RWC"/>
+                                    <constraint firstAttribute="width" constant="100" id="IBh-8L-SAZ"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blQ-Sp-X5Z">
+                                <rect key="frame" x="380" y="139" width="22" height="22"/>
+                                <state key="normal" image="star" catalog="system"/>
+                                <connections>
+                                    <action selector="starClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xlQ-Rg-o5S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -53,12 +61,14 @@
                             <constraint firstItem="KfM-9E-QEA" firstAttribute="top" secondItem="pql-Ue-1CH" secondAttribute="bottom" constant="6" id="3uP-iL-rdg"/>
                             <constraint firstItem="nBd-3Z-P6h" firstAttribute="leading" secondItem="JCv-Ll-twW" secondAttribute="leading" id="5lP-za-SIW"/>
                             <constraint firstAttribute="bottom" secondItem="nBd-3Z-P6h" secondAttribute="bottom" id="AX0-9b-OrX"/>
+                            <constraint firstAttribute="bottom" secondItem="V90-do-NbL" secondAttribute="bottom" constant="6" id="EFF-CY-I8g"/>
+                            <constraint firstAttribute="bottom" secondItem="blQ-Sp-X5Z" secondAttribute="bottom" constant="10" id="FdQ-89-UUt"/>
                             <constraint firstAttribute="trailing" secondItem="KfM-9E-QEA" secondAttribute="trailing" constant="16" id="Fq1-uq-QCW"/>
-                            <constraint firstAttribute="bottom" secondItem="oeE-kj-VXk" secondAttribute="bottom" constant="8" id="MyT-cl-m63"/>
                             <constraint firstItem="pql-Ue-1CH" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="16" id="Oof-cD-CFc"/>
+                            <constraint firstItem="V90-do-NbL" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="10" id="Rce-Qf-hOP"/>
                             <constraint firstItem="KfM-9E-QEA" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="16" id="Sl0-qZ-HXS"/>
                             <constraint firstItem="pql-Ue-1CH" firstAttribute="top" secondItem="JCv-Ll-twW" secondAttribute="top" constant="16" id="TIn-XT-TLO"/>
-                            <constraint firstItem="oeE-kj-VXk" firstAttribute="leading" secondItem="nBd-3Z-P6h" secondAttribute="trailing" constant="12" id="WTZ-mG-91U"/>
+                            <constraint firstAttribute="trailing" secondItem="blQ-Sp-X5Z" secondAttribute="trailing" constant="10" id="cDw-Qe-d2s"/>
                             <constraint firstItem="nBd-3Z-P6h" firstAttribute="top" secondItem="JCv-Ll-twW" secondAttribute="top" id="x4C-rQ-ak8"/>
                         </constraints>
                     </view>
@@ -75,13 +85,16 @@
                 <outlet property="backView" destination="JCv-Ll-twW" id="gYM-Qq-g4A"/>
                 <outlet property="descriptionLabel" destination="KfM-9E-QEA" id="R6d-41-16S"/>
                 <outlet property="lineView" destination="nBd-3Z-P6h" id="Nc5-0K-oh8"/>
-                <outlet property="logoView" destination="oeE-kj-VXk" id="1y2-8d-YrA"/>
+                <outlet property="logoView" destination="V90-do-NbL" id="JRM-wl-nJL"/>
+                <outlet property="starButton" destination="blQ-Sp-X5Z" id="kW8-TS-nhR"/>
                 <outlet property="titleLabel" destination="pql-Ue-1CH" id="Poq-gu-vhg"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="133.59375"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="zenn-light" width="2083.5" height="497"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

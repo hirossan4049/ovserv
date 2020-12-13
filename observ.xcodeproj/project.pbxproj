@@ -17,10 +17,10 @@
 		D30CF151257CA79E001C176C /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30CF150257CA79E001C176C /* DateUtils.swift */; };
 		D3106282258229DA00546ECA /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3106281258229DA00546ECA /* UIImage+resize.swift */; };
 		D31062AE258238B400546ECA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31062AD258238B400546ECA /* HomeViewController.swift */; };
-		D31062DD25823AE600546ECA /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31062DC25823AE600546ECA /* TestVC.swift */; };
+		D31063312585DEFE00546ECA /* StarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31063302585DEFE00546ECA /* StarModel.swift */; };
+		D31063392585E17800546ECA /* UserDefaults+Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31063382585E17800546ECA /* UserDefaults+Struct.swift */; };
 		D314B235256A093A00A3FC86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314B234256A093A00A3FC86 /* AppDelegate.swift */; };
 		D314B237256A093A00A3FC86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314B236256A093A00A3FC86 /* SceneDelegate.swift */; };
-		D314B239256A093A00A3FC86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314B238256A093A00A3FC86 /* ViewController.swift */; };
 		D314B23C256A093A00A3FC86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314B23A256A093A00A3FC86 /* Main.storyboard */; };
 		D314B23E256A093D00A3FC86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D314B23D256A093D00A3FC86 /* Assets.xcassets */; };
 		D314B241256A093D00A3FC86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314B23F256A093D00A3FC86 /* LaunchScreen.storyboard */; };
@@ -65,11 +65,11 @@
 		D30CF150257CA79E001C176C /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		D3106281258229DA00546ECA /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		D31062AD258238B400546ECA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D31062DC25823AE600546ECA /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		D31063302585DEFE00546ECA /* StarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarModel.swift; sourceTree = "<group>"; };
+		D31063382585E17800546ECA /* UserDefaults+Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Struct.swift"; sourceTree = "<group>"; };
 		D314B231256A093A00A3FC86 /* observ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = observ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D314B234256A093A00A3FC86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D314B236256A093A00A3FC86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D314B238256A093A00A3FC86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D314B23B256A093A00A3FC86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D314B23D256A093D00A3FC86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D314B240256A093D00A3FC86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,8 +148,17 @@
 				D30CF140257A548C001C176C /* String+leftPadding.swift */,
 				D30CF150257CA79E001C176C /* DateUtils.swift */,
 				D3106281258229DA00546ECA /* UIImage+resize.swift */,
+				D31063382585E17800546ECA /* UserDefaults+Struct.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D310632F2585DE1600546ECA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D31063302585DEFE00546ECA /* StarModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D314B228256A093A00A3FC86 = {
@@ -177,6 +186,7 @@
 		D314B233256A093A00A3FC86 /* observ */ = {
 			isa = PBXGroup;
 			children = (
+				D310632F2585DE1600546ECA /* Model */,
 				D30CF12F257A52E1001C176C /* Extensions */,
 				D314B270256CEB7600A3FC86 /* Struct */,
 				D314B267256A097D00A3FC86 /* rss */,
@@ -239,9 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				D3300DA22571229500A37EA6 /* Cells */,
-				D314B238256A093A00A3FC86 /* ViewController.swift */,
 				D31062AD258238B400546ECA /* HomeViewController.swift */,
-				D31062DC25823AE600546ECA /* TestVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,17 +502,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D314B239256A093A00A3FC86 /* ViewController.swift in Sources */,
 				D30CF151257CA79E001C176C /* DateUtils.swift in Sources */,
+				D31063392585E17800546ECA /* UserDefaults+Struct.swift in Sources */,
 				D30CF131257A52F1001C176C /* UIColor+.swift in Sources */,
 				D314B273256CEBC200A3FC86 /* Article.swift in Sources */,
 				D314B235256A093A00A3FC86 /* AppDelegate.swift in Sources */,
 				D31062AE258238B400546ECA /* HomeViewController.swift in Sources */,
 				D314B237256A093A00A3FC86 /* SceneDelegate.swift in Sources */,
 				D30CF141257A548C001C176C /* String+leftPadding.swift in Sources */,
+				D31063312585DEFE00546ECA /* StarModel.swift in Sources */,
 				D3300D9625711B7A00A37EA6 /* HomeConductor.swift in Sources */,
 				D30CF139257A531E001C176C /* UIColor+hex.swift in Sources */,
-				D31062DD25823AE600546ECA /* TestVC.swift in Sources */,
 				D3106282258229DA00546ECA /* UIImage+resize.swift in Sources */,
 				D317C6D7257124D1001E8B26 /* ArticleTableViewCell.swift in Sources */,
 				D314B269256A098E00A3FC86 /* ZennRSS.swift in Sources */,

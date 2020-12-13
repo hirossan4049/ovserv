@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
         feedsTableView.reloadData()
     }
     
+    
 }
 
 
@@ -55,8 +56,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         cell.titleLabel.text = conductor.feeds[indexPath.row].title
         cell.descriptionLabel.text = conductor.feeds[indexPath.row].preview
         cell.lineView.backgroundColor = conductor.feeds[indexPath.row].site.lineColor()
+        cell.starClickFn = self.starClicked
+        cell.tag = indexPath.row
         
-        cell.imageView?.image = conductor.feeds[indexPath.row].site.getImage(size: cell.logoSize)
+        cell.logoView?.image = conductor.feeds[indexPath.row].site.getImage(size: cell.logoSize)
         
         
         cell.selectionStyle = .none
@@ -67,6 +70,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
          tableView.deselectRow(at: indexPath, animated: true)
         let safariVC = SFSafariViewController(url: NSURL(string: conductor.feeds[indexPath.row].url)! as URL)
         present(safariVC, animated: true, completion: nil)
+    }
+    
+    func starClicked(_ tag: Int, _ isStar: Bool){
+        print(tag, isStar)
+        
     }
     
     

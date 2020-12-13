@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="62f-WT-ONb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ADG-d1-usf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -8,21 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="Mko-2F-1ft">
-            <objects>
-                <viewController id="62f-WT-ONb" customClass="ViewController" customModule="observ" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ijp-J5-Wlh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="GOO-hr-U90"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecn-Gd-4xJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-880" y="75"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -32,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="230" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FZs-Fk-7yu">
-                                <rect key="frame" x="0.0" y="76" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="820"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -41,17 +26,75 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FZs-Fk-7yu" secondAttribute="trailing" id="3F8-2q-FGF"/>
                             <constraint firstItem="FZs-Fk-7yu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="4EC-x3-dUQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FZs-Fk-7yu" secondAttribute="bottom" constant="32" id="PVP-uM-SKM"/>
                             <constraint firstItem="FZs-Fk-7yu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yz3-5o-1Rh"/>
+                            <constraint firstAttribute="bottom" secondItem="FZs-Fk-7yu" secondAttribute="bottom" id="nfb-Xf-vdn"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" image="home_" id="ofF-Pp-WwJ"/>
+                    <connections>
+                        <outlet property="feedsTableView" destination="FZs-Fk-7yu" id="jHE-Lu-y97"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="75"/>
+            <point key="canvasLocation" x="108.69565217391305" y="-330.13392857142856"/>
+        </scene>
+        <!--Card Tab Bar Controller-->
+        <scene sceneID="6j5-4m-6MM">
+            <objects>
+                <tabBarController id="ADG-d1-usf" customClass="PTCardTabBarController" customModule="PTCardTabBar" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zIH-XW-piI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ZbK-j9-WZk"/>
+                        <segue destination="UFU-Nv-PUf" kind="relationship" relationship="viewControllers" id="ZhW-ym-zWF"/>
+                        <segue destination="Pvb-HC-YUw" kind="relationship" relationship="viewControllers" id="anq-LG-0Qz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6i-gg-HyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-777" y="657"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="IzT-0d-ec5">
+            <objects>
+                <viewController id="Pvb-HC-YUw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nJd-CS-aMg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7Pa-GA-I2K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="gear" catalog="system" id="Bxc-sA-VuV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNp-kn-es3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="80" y="1176"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="KgD-5f-evX">
+            <objects>
+                <viewController id="UFU-Nv-PUf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WBd-Ec-hIF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zjp-cg-RZS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="star" catalog="system" id="sVM-Xf-7DN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPh-k5-Ktg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="481"/>
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="home_" width="26" height="24"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

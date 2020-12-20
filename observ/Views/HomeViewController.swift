@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import AudioToolbox
 
 
 class HomeViewController: UIViewController {
@@ -25,8 +26,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewdidload")
-//        self.presenter = HomePresenter(view: self, model: StarModel())
+        self.presenter = HomePresenter(view: self, model: StarModel())
         presenter.viewDidLoad()
+        
 //        conductor = HomeConductor()
 //        conductor.reload = self.reload
         
@@ -91,6 +93,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func starClicked(_ tag: Int, _ isStar: Bool){
         print(tag, isStar)
+        AudioServicesPlaySystemSound(1520)
         if isStar{
             presenter.addStar(forRow: tag)
         }else{
@@ -100,3 +103,4 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     
 }
+

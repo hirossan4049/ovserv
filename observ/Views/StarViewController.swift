@@ -8,11 +8,22 @@
 import UIKit
 
 class StarViewController: UIViewController {
+    
+    var presenter: StarPresenterInput!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = StarPresenter(view: self, model: StarModel())
+        presenter.viewDidLoad()
 
     }
     
 
+}
+
+
+extension StarViewController: StarPresenterOutput{
+    func reload() {
+        
+    }
 }

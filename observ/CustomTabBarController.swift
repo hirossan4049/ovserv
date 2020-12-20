@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import PTCardTabBar
 
-class CustomTabBarController: UITabBarController {
+class CustomTabBarController: PTCardTabBarController  {
 
     override func viewDidLoad() {
 //        super.viewDidLoad()

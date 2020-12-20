@@ -30,10 +30,10 @@
 		D314B273256CEBC200A3FC86 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314B272256CEBC200A3FC86 /* Article.swift */; };
 		D317C6D7257124D1001E8B26 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317C6D5257124D1001E8B26 /* ArticleTableViewCell.swift */; };
 		D317C6D8257124D1001E8B26 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D317C6D6257124D1001E8B26 /* ArticleTableViewCell.xib */; };
-		D3300D9625711B7A00A37EA6 /* HomeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3300D9525711B7A00A37EA6 /* HomeConductor.swift */; };
 		D3B21CC3258EEAE2002A170D /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC2258EEAE2002A170D /* StarViewController.swift */; };
 		D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC7258EEE37002A170D /* HomePresenter.swift */; };
 		D3B21D15258F1844002A170D /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D14258F1844002A170D /* CustomTabBarController.swift */; };
+		D3B21D3C258F8AD5002A170D /* StarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D3B258F8AD5002A170D /* StarPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,10 +87,11 @@
 		D314B272256CEBC200A3FC86 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D317C6D5257124D1001E8B26 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D317C6D6257124D1001E8B26 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
-		D3300D9525711B7A00A37EA6 /* HomeConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConductor.swift; sourceTree = "<group>"; };
 		D3B21CC2258EEAE2002A170D /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		D3B21CC7258EEE37002A170D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D3B21D14258F1844002A170D /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		D3B21D28258F7586002A170D /* observ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = observ.entitlements; sourceTree = "<group>"; };
+		D3B21D3B258F8AD5002A170D /* StarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPresenter.swift; sourceTree = "<group>"; };
 		D964EDAE7CDD5EA585A4CC32 /* Pods-observ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ.release.xcconfig"; path = "Target Support Files/Pods-observ/Pods-observ.release.xcconfig"; sourceTree = "<group>"; };
 		E91F04EC2F826F25A91BA380 /* Pods_observ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_observ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -192,11 +193,12 @@
 		D314B233256A093A00A3FC86 /* observ */ = {
 			isa = PBXGroup;
 			children = (
+				D3B21D28258F7586002A170D /* observ.entitlements */,
 				D310632F2585DE1600546ECA /* Model */,
 				D30CF12F257A52E1001C176C /* Extensions */,
 				D314B270256CEB7600A3FC86 /* Struct */,
 				D314B267256A097D00A3FC86 /* rss */,
-				D3300D9A2571217000A37EA6 /* Conductors */,
+				D3B21D19258F1D0B002A170D /* Presenter */,
 				D3300D9B2571218400A37EA6 /* Views */,
 				D314B234256A093A00A3FC86 /* AppDelegate.swift */,
 				D314B236256A093A00A3FC86 /* SceneDelegate.swift */,
@@ -244,21 +246,12 @@
 			path = Struct;
 			sourceTree = "<group>";
 		};
-		D3300D9A2571217000A37EA6 /* Conductors */ = {
-			isa = PBXGroup;
-			children = (
-				D3300D9525711B7A00A37EA6 /* HomeConductor.swift */,
-			);
-			path = Conductors;
-			sourceTree = "<group>";
-		};
 		D3300D9B2571218400A37EA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D3300DA22571229500A37EA6 /* Cells */,
 				D31062AD258238B400546ECA /* HomeViewController.swift */,
 				D3B21CC2258EEAE2002A170D /* StarViewController.swift */,
-				D3B21CC7258EEE37002A170D /* HomePresenter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +263,15 @@
 				D317C6D6257124D1001E8B26 /* ArticleTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3B21D19258F1D0B002A170D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D3B21CC7258EEE37002A170D /* HomePresenter.swift */,
+				D3B21D3B258F8AD5002A170D /* StarPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,7 +523,7 @@
 				D30CF141257A548C001C176C /* String+leftPadding.swift in Sources */,
 				D3B21D15258F1844002A170D /* CustomTabBarController.swift in Sources */,
 				D31063312585DEFE00546ECA /* StarModel.swift in Sources */,
-				D3300D9625711B7A00A37EA6 /* HomeConductor.swift in Sources */,
+				D3B21D3C258F8AD5002A170D /* StarPresenter.swift in Sources */,
 				D30CF139257A531E001C176C /* UIColor+hex.swift in Sources */,
 				D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */,
 				D3106282258229DA00546ECA /* UIImage+resize.swift in Sources */,
@@ -634,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -689,7 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -705,7 +707,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = observ/observ.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR3UW32WU4;
 				INFOPLIST_FILE = observ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -713,6 +717,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hirossan4049.observ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -724,7 +729,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = observ/observ.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR3UW32WU4;
 				INFOPLIST_FILE = observ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -732,6 +739,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hirossan4049.observ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

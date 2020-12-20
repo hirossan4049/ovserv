@@ -7,7 +7,8 @@
 
 import UIKit
 
-@main
+//@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let presenter = HomePresenter(view: view, model: model)
 //
 //        view.inject(presenter: presenter)
+        
 //
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = view

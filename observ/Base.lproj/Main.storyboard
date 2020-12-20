@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="108.69565217391305" y="-330.13392857142856"/>
         </scene>
-        <!--Custom Tab Bar Controller-->
+        <!--Card Tab Bar Controller-->
         <scene sceneID="6j5-4m-6MM">
             <objects>
-                <tabBarController id="ADG-d1-usf" customClass="CustomTabBarController" customModule="observ" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="ADG-d1-usf" customClass="PTCardTabBarController" customModule="PTCardTabBar" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zIH-XW-piI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

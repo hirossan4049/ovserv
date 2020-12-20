@@ -14,16 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let view = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
-        let model = StarModel()
-        
-        let presenter = HomePresenter(view: view, model: model)
-        
-        view.inject(presenter: presenter)
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = view
-        window?.makeKeyAndVisible()
+//        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+//        let model = StarModel()
+//
+//        let presenter = HomePresenter(view: view, model: model)
+//
+//        view.inject(presenter: presenter)
+//
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.rootViewController = view
+//        window?.makeKeyAndVisible()
         
         return true
     }

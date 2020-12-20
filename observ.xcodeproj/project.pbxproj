@@ -31,6 +31,8 @@
 		D317C6D7257124D1001E8B26 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317C6D5257124D1001E8B26 /* ArticleTableViewCell.swift */; };
 		D317C6D8257124D1001E8B26 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D317C6D6257124D1001E8B26 /* ArticleTableViewCell.xib */; };
 		D3300D9625711B7A00A37EA6 /* HomeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3300D9525711B7A00A37EA6 /* HomeConductor.swift */; };
+		D3B21CC3258EEAE2002A170D /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC2258EEAE2002A170D /* StarViewController.swift */; };
+		D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC7258EEE37002A170D /* HomePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		D317C6D5257124D1001E8B26 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D317C6D6257124D1001E8B26 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		D3300D9525711B7A00A37EA6 /* HomeConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConductor.swift; sourceTree = "<group>"; };
+		D3B21CC2258EEAE2002A170D /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
+		D3B21CC7258EEE37002A170D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D964EDAE7CDD5EA585A4CC32 /* Pods-observ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ.release.xcconfig"; path = "Target Support Files/Pods-observ/Pods-observ.release.xcconfig"; sourceTree = "<group>"; };
 		E91F04EC2F826F25A91BA380 /* Pods_observ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_observ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -250,6 +254,8 @@
 			children = (
 				D3300DA22571229500A37EA6 /* Cells */,
 				D31062AD258238B400546ECA /* HomeViewController.swift */,
+				D3B21CC2258EEAE2002A170D /* StarViewController.swift */,
+				D3B21CC7258EEE37002A170D /* HomePresenter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,7 +519,9 @@
 				D31063312585DEFE00546ECA /* StarModel.swift in Sources */,
 				D3300D9625711B7A00A37EA6 /* HomeConductor.swift in Sources */,
 				D30CF139257A531E001C176C /* UIColor+hex.swift in Sources */,
+				D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */,
 				D3106282258229DA00546ECA /* UIImage+resize.swift in Sources */,
+				D3B21CC3258EEAE2002A170D /* StarViewController.swift in Sources */,
 				D317C6D7257124D1001E8B26 /* ArticleTableViewCell.swift in Sources */,
 				D314B269256A098E00A3FC86 /* ZennRSS.swift in Sources */,
 				D30CF149257C7A44001C176C /* RSS.swift in Sources */,

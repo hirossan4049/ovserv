@@ -51,9 +51,31 @@ final class HomePresenter: HomePresenterInput {
         self.model.removeStar(forRow: self.model.getStarIndex(url: feeds[row].url)!)
     }
     
+    func feedsGet(){
+        let getArticles:[Article.SiteType] = [.zenn, .hatena]
+        
+        for article in getArticles{
+            let rss = RSS(article)
+            rss.start(finished: feedgetted)
+        }
+        print("====== VIEW RELOAD =======")
+        view.reload()
+        print("==========================")
+    }
+    
+    
+    private func feedgetted(article:[Article]){
+        feeds.append(contentsOf: article)
+        feeds.sort {
+            (lhs: Article, rhs: Article) in
+            return lhs.date < rhs.date
+        }
+    }
+    
     func reloadFeeds(){
         self.feeds = []
-        self.feeds = self.model.fetchStars()
+        self.feedsGet()
+        print(feeds)
         view.reload()
     }
     

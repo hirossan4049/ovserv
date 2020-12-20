@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewdidload")
+//        self.presenter = HomePresenter(view: self, model: StarModel())
         presenter.viewDidLoad()
 //        conductor = HomeConductor()
 //        conductor.reload = self.reload
@@ -51,6 +53,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomePresenterOutput{
     func reload(){
+        print("VIEWCONTRLLER RELOAD!!!!!!!!!!!!!")
         refreshCtl.endRefreshing()
         feedsTableView.reloadData()
     }

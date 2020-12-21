@@ -16,7 +16,7 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var starButton: UIButton!
     
-    public let logoSize = CGSize(width: 50, height: 18.5)
+    public let logoSize = CGSize(width: 18.5, height: 18.5)
     public var starClickFn: ((Int, Bool) -> ())!
     
     private var defaultsBackViewFrame: CGRect!

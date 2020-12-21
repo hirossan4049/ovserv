@@ -8,9 +8,10 @@
 import UIKit
 import SafariServices
 import AudioToolbox
+import PTCardTabBar
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIViewControllerPreviewingDelegate {
 //    private var conductor: HomeConductor!
     
     @IBOutlet weak var feedsTableView: UITableView!
@@ -31,6 +32,11 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.title = "Home"
+        
+        // 3D Touchが使える端末か確認
+        if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
+            registerForPreviewing(with: self, sourceView: feedsTableView)
+        }
 
 //        conductor = HomeConductor()
 //        conductor.reload = self.reload
@@ -110,6 +116,94 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        if velocity.y > 0 {
+//            //上下のバーを隠す
+//            hidesBarsWithScrollView(scrollView: scrollView, hidden: true, hiddenTop: false, hiddenBottom: true)
+//        } else {
+//            //上下のバーを表示する
+//            hidesBarsWithScrollView(scrollView: scrollView, hidden: false, hiddenTop: false, hiddenBottom: true)
+//        }
+//    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        print(#function)
+//        hidesBarsWithScrollView(scrollView: scrollView, hidden: false, hiddenTop: false, hiddenBottom: true)
+//    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print(#function)
+        hidesBarsWithScrollView(scrollView: scrollView, hidden: true, hiddenTop: false, hiddenBottom: true)
+    }
+
+    func hidesBarsWithScrollView(scrollView :UIScrollView,hidden:Bool,hiddenTop:Bool,hiddenBottom:Bool){
+        let tabBarController = (self.tabBarController as? PTCardTabBarController)?.customTabBar
+    
+        var inset = scrollView.contentInset
+
+        //上下バーのframe
+        var tabBarRect = tabBarController?.frame
+        var topBarRect = self.navigationController?.navigationBar.frame
+
+        //各パーツの高さ
+        let tabBarHeight = tabBarController?.frame.size.height
+        let naviBarHeight = self.navigationController?.navigationBar.frame.size.height
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let controllerHeight = tabBarController?.frame.size.height
+
+        if hidden {
+            if hiddenTop {
+                topBarRect?.origin.y = -(naviBarHeight! + statusBarHeight)
+                inset.top = 0
+            }
+            if hiddenBottom {
+                tabBarRect?.origin.y = controllerHeight!
+                inset.bottom = 0
+            }
+        } else {
+            topBarRect?.origin.y = statusBarHeight
+            inset.top = naviBarHeight! + statusBarHeight
+            tabBarRect?.origin.y = controllerHeight! - tabBarHeight!
+            inset.bottom = tabBarHeight!
+        }
+
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in
+        scrollView.contentInset = inset
+        scrollView.scrollIndicatorInsets = inset
+        tabBarController?.frame = tabBarRect!
+        self.navigationController?.navigationBar.frame = topBarRect!
+        })
+    }
+    
     
 }
 
+
+
+extension HomeViewController{
+    // MARK: 3DTouch
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        print("PRESSED")
+//        self.performSegue(withIdentifier: "toZiten", sender: nil)
+//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "toZiten") as! ZitenViewController
+//        secondViewController.group_createTime = self.clicked_group.createTime
+//        self.navigationController?.pushViewController(secondViewController, animated: true)
+        present(viewControllerToCommit, animated: true, completion: nil)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        print("3D Touched!")
+//        AudioServicesPlaySystemSound( 1102 )
+        let indexPath = feedsTableView.indexPathForRow(at: location)!
+        
+        if (indexPath != nil){
+            let safariVC = SFSafariViewController(url: NSURL(string: presenter.feed(forRow: indexPath.row)!.url)! as URL)
+//            secondViewController.PREVIEW_MODE = true
+            return safariVC
+            
+        }else if(false){
+            // floating button
+            
+        }else{
+            return nil
+        }
+    }
+}

@@ -34,6 +34,7 @@
 		D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC7258EEE37002A170D /* HomePresenter.swift */; };
 		D3B21D15258F1844002A170D /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D14258F1844002A170D /* CustomTabBarController.swift */; };
 		D3B21D3C258F8AD5002A170D /* StarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D3B258F8AD5002A170D /* StarPresenter.swift */; };
+		D3B21D41258F8EA4002A170D /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D40258F8EA4002A170D /* HomeNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		D3B21D14258F1844002A170D /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		D3B21D28258F7586002A170D /* observ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = observ.entitlements; sourceTree = "<group>"; };
 		D3B21D3B258F8AD5002A170D /* StarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPresenter.swift; sourceTree = "<group>"; };
+		D3B21D40258F8EA4002A170D /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		D964EDAE7CDD5EA585A4CC32 /* Pods-observ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ.release.xcconfig"; path = "Target Support Files/Pods-observ/Pods-observ.release.xcconfig"; sourceTree = "<group>"; };
 		E91F04EC2F826F25A91BA380 /* Pods_observ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_observ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -252,6 +254,7 @@
 				D3300DA22571229500A37EA6 /* Cells */,
 				D31062AD258238B400546ECA /* HomeViewController.swift */,
 				D3B21CC2258EEAE2002A170D /* StarViewController.swift */,
+				D3B21D40258F8EA4002A170D /* HomeNavigationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				D30CF131257A52F1001C176C /* UIColor+.swift in Sources */,
 				D314B273256CEBC200A3FC86 /* Article.swift in Sources */,
 				D314B235256A093A00A3FC86 /* AppDelegate.swift in Sources */,
+				D3B21D41258F8EA4002A170D /* HomeNavigationController.swift in Sources */,
 				D31062AE258238B400546ECA /* HomeViewController.swift in Sources */,
 				D314B237256A093A00A3FC86 /* SceneDelegate.swift in Sources */,
 				D30CF141257A548C001C176C /* String+leftPadding.swift in Sources */,

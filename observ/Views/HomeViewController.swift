@@ -29,6 +29,9 @@ class HomeViewController: UIViewController {
         self.presenter = HomePresenter(view: self, model: StarModel())
         presenter.viewDidLoad()
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.title = "Home"
+
 //        conductor = HomeConductor()
 //        conductor.reload = self.reload
         
@@ -86,6 +89,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
+        let cell: ArticleTableViewCell = feedsTableView.cellForRow(at: indexPath) as! ArticleTableViewCell
+        let f = cell.backView.frame
+//        UIView.animate(withDuration: 0.3, animations: {
+//            cell.backView.frame = CGRect(x: f.origin.x - 5, y: f.origin.y - 5, width: f.width + 10, height: f.height + 10)
+//        })
 //        let safariVC = SFSafariViewController(url: NSURL(string: conductor.feeds[indexPath.row].url)! as URL)
         let safariVC = SFSafariViewController(url: NSURL(string: presenter.feed(forRow: indexPath.row)!.url)! as URL)
         present(safariVC, animated: true, completion: nil)
@@ -93,6 +101,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func starClicked(_ tag: Int, _ isStar: Bool){
         print(tag, isStar)
+
         AudioServicesPlaySystemSound(1520)
         if isStar{
             presenter.addStar(forRow: tag)

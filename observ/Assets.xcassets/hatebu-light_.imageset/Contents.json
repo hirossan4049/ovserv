@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "hatena-bookmark-logotype.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Image.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

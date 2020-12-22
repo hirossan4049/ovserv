@@ -31,15 +31,13 @@ class HomeViewController: UIViewController, UIViewControllerPreviewingDelegate {
         presenter.viewDidLoad()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.title = "Home"
+//        self.navigationController?.title = "Home"
         
         // 3D Touchが使える端末か確認
         if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
             registerForPreviewing(with: self, sourceView: feedsTableView)
         }
 
-//        conductor = HomeConductor()
-//        conductor.reload = self.reload
         
         feedsTableView.dataSource = self
         feedsTableView.delegate = self
@@ -181,17 +179,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 extension HomeViewController{
     // MARK: 3DTouch
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        print("PRESSED")
-//        self.performSegue(withIdentifier: "toZiten", sender: nil)
-//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "toZiten") as! ZitenViewController
-//        secondViewController.group_createTime = self.clicked_group.createTime
-//        self.navigationController?.pushViewController(secondViewController, animated: true)
         present(viewControllerToCommit, animated: true, completion: nil)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         print("3D Touched!")
-//        AudioServicesPlaySystemSound( 1102 )
         let indexPath = feedsTableView.indexPathForRow(at: location)!
         
         if (indexPath != nil){

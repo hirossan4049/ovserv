@@ -7,6 +7,8 @@
 
 import UIKit
 import PTCardTabBar
+import SafariServices
+import AVKit
 
 class StarViewController: UIViewController {
     @IBOutlet weak var feedsTableView: UITableView!
@@ -26,6 +28,11 @@ class StarViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.reloadFeeds()
+    }
+    
 
 }
 
@@ -42,6 +49,7 @@ extension StarViewController: UITableViewDataSource, UITableViewDelegate{
 //        cell.lineView.backgroundColor = article.lineColor()
         cell.starClickFn = self.starClicked
         cell.tag = indexPath.row
+        cell.isStar = true
         
         cell.logoView?.image = article.site.getImage(size: cell.logoSize)
         
@@ -67,7 +75,8 @@ extension StarViewController: UITableViewDataSource, UITableViewDelegate{
 
         AudioServicesPlaySystemSound(1520)
         if isStar{
-            presenter.addStar(forRow: tag)
+//            presenter.addStar(forRow: tag)
+            print("addStar？？謎。")
         }else{
             presenter.deleteStar(forRow: tag)
         }
@@ -75,7 +84,7 @@ extension StarViewController: UITableViewDataSource, UITableViewDelegate{
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         print(#function)
-        hidesBarsWithScrollView(scrollView: scrollView, hidden: true, hiddenTop: false, hiddenBottom: true)
+//        hidesBarsWithScrollView(scrollView: scrollView, hidden: true, hiddenTop: false, hiddenBottom: true)
     }
 
     func hidesBarsWithScrollView(scrollView :UIScrollView,hidden:Bool,hiddenTop:Bool,hiddenBottom:Bool){
@@ -123,6 +132,6 @@ extension StarViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension StarViewController: StarPresenterOutput{
     func reload() {
-        
+        self.feedsTableView.reloadData()
     }
 }

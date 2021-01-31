@@ -10,6 +10,7 @@ import Foundation
 protocol HomePresenterInput {
     var numberOfFeeds: Int{get}
     func feed(forRow row: Int) -> Article?
+    func articles(site: Article.SiteType) -> [Article]
     func viewDidLoad()
     func addStar(forRow row: Int)
     func deleteStar(forRow row: Int)
@@ -23,6 +24,7 @@ protocol HomePresenterOutput: AnyObject {
 final class HomePresenter: HomePresenterInput {
     
     private(set) var feeds: [Article] = []
+    private(set) var articles: Dictionary<Article.SiteType, [Article]> = [:]
     
     private weak var view: HomePresenterOutput!
     private var model: StarModelInput
@@ -63,9 +65,14 @@ final class HomePresenter: HomePresenterInput {
         print("==========================")
     }
     
+    func articles(site: Article.SiteType) -> [Article] {
+        return articles[site] ?? []
+    }
+    
     
     private func feedgetted(article:[Article]){
         feeds.append(contentsOf: article)
+        articles.updateValue(article, forKey: article[0].site)
         feeds.sort {
             (lhs: Article, rhs: Article) in
             return lhs.date < rhs.date

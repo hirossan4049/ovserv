@@ -19,7 +19,7 @@ final class StarModel:StarModelInput {
     private let ITEM_KEY = "Stars"
     
     func fetchStars() -> [Article]{
-        let jsonArray:[String] = userDefaluts.array(forKey: ITEM_KEY) as! [String]
+        let jsonArray:[String] = userDefaluts.array(forKey: ITEM_KEY) as? [String] ?? []
         var retArray:[Article] = []
         
         for item in jsonArray{

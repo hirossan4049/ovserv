@@ -17,7 +17,7 @@ public struct Article: Codable{
     var image: Data? = nil
     var site: SiteType = .other
     
-    enum SiteType: String, Codable{
+    public enum SiteType: String, Codable{
         case zenn
         case qiita
         case note

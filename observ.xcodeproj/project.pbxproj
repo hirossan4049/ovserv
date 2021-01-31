@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1644E78A829BB91F2A6C2E33 /* Pods_observ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F04EC2F826F25A91BA380 /* Pods_observ.framework */; };
+		66818388A3EF3AC0503A8E0D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668188DD3B3B2EED7DA721AB /* UIView+.swift */; };
 		88824BCAD0999B0821A50AEA /* Pods_observTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4717A319EFA745FD32C3D98D /* Pods_observTests.framework */; };
 		BA11706926C23D9E68257A6A /* Pods_observ_observUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D0D34D57211A6F3C983163 /* Pods_observ_observUITests.framework */; };
 		D30CF131257A52F1001C176C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30CF130257A52F1001C176C /* UIColor+.swift */; };
@@ -34,6 +35,7 @@
 		D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21CC7258EEE37002A170D /* HomePresenter.swift */; };
 		D3B21D15258F1844002A170D /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D14258F1844002A170D /* CustomTabBarController.swift */; };
 		D3B21D3C258F8AD5002A170D /* StarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B21D3B258F8AD5002A170D /* StarPresenter.swift */; };
+		E9732A9525A9ACFD0068F632 /* HomeBaseTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9732A9425A9ACFD0068F632 /* HomeBaseTVViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		08425140C460100693FCCE7E /* Pods-observ-observUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ-observUITests.release.xcconfig"; path = "Target Support Files/Pods-observ-observUITests/Pods-observ-observUITests.release.xcconfig"; sourceTree = "<group>"; };
 		23C6EFFBF5491E90AA252359 /* Pods-observTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observTests.debug.xcconfig"; path = "Target Support Files/Pods-observTests/Pods-observTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4717A319EFA745FD32C3D98D /* Pods_observTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_observTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		668188DD3B3B2EED7DA721AB /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		7B12D528AC2691431E51B2CB /* Pods-observ-observUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ-observUITests.debug.xcconfig"; path = "Target Support Files/Pods-observ-observUITests/Pods-observ-observUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B90E963C1AE9B4D848F64752 /* Pods-observ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ.debug.xcconfig"; path = "Target Support Files/Pods-observ/Pods-observ.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5C799414B41CFCBBF37F16 /* Pods-observTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observTests.release.xcconfig"; path = "Target Support Files/Pods-observTests/Pods-observTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		D3B21D3B258F8AD5002A170D /* StarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPresenter.swift; sourceTree = "<group>"; };
 		D964EDAE7CDD5EA585A4CC32 /* Pods-observ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-observ.release.xcconfig"; path = "Target Support Files/Pods-observ/Pods-observ.release.xcconfig"; sourceTree = "<group>"; };
 		E91F04EC2F826F25A91BA380 /* Pods_observ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_observ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9732A9425A9ACFD0068F632 /* HomeBaseTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseTVViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 				D30CF150257CA79E001C176C /* DateUtils.swift */,
 				D3106281258229DA00546ECA /* UIImage+resize.swift */,
 				D31063382585E17800546ECA /* UserDefaults+Struct.swift */,
+				668188DD3B3B2EED7DA721AB /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				D3300DA22571229500A37EA6 /* Cells */,
 				D31062AD258238B400546ECA /* HomeViewController.swift */,
 				D3B21CC2258EEAE2002A170D /* StarViewController.swift */,
+				E9732A9425A9ACFD0068F632 /* HomeBaseTVViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				D3B21D15258F1844002A170D /* CustomTabBarController.swift in Sources */,
 				D31063312585DEFE00546ECA /* StarModel.swift in Sources */,
 				D3B21D3C258F8AD5002A170D /* StarPresenter.swift in Sources */,
+				E9732A9525A9ACFD0068F632 /* HomeBaseTVViewController.swift in Sources */,
 				D30CF139257A531E001C176C /* UIColor+hex.swift in Sources */,
 				D3B21CC8258EEE37002A170D /* HomePresenter.swift in Sources */,
 				D3106282258229DA00546ECA /* UIImage+resize.swift in Sources */,
@@ -531,6 +538,7 @@
 				D317C6D7257124D1001E8B26 /* ArticleTableViewCell.swift in Sources */,
 				D314B269256A098E00A3FC86 /* ZennRSS.swift in Sources */,
 				D30CF149257C7A44001C176C /* RSS.swift in Sources */,
+				66818388A3EF3AC0503A8E0D /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

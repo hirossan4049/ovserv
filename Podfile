@@ -7,6 +7,8 @@ target 'observ' do
 
   pod 'PTCardTabBar'
   pod 'Loaf'
+  pod 'Parchment', '~> 3.0'
+
   # Pods for observ
 
   target 'observTests' do

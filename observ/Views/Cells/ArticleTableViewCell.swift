@@ -42,6 +42,7 @@ class ArticleTableViewCell: UITableViewCell {
         self.backView.layer.shadowColor = UIColor.black.cgColor
         self.backView.layer.shadowOpacity = 0.2
         self.backView.layer.shadowRadius = 10
+
         
         defaultsBackViewFrame = self.backView.frame
         

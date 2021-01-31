@@ -1,20 +1,24 @@
 PODS:
   - Loaf (0.5.0)
+  - Parchment (3.0.1)
   - PTCardTabBar (1.0.1)
 
 DEPENDENCIES:
   - Loaf
+  - Parchment (~> 3.0)
   - PTCardTabBar
 
 SPEC REPOS:
   trunk:
     - Loaf
+    - Parchment
     - PTCardTabBar
 
 SPEC CHECKSUMS:
   Loaf: 0800b444431366bc395d54267975d4ad4ad5c99c
+  Parchment: 466a1cfb6151780db8acb4bbedc2d9c6bfa1e2ff
   PTCardTabBar: 9112a6d4eb2b73da9cf4e7f3aefe04504479cf98
 
-PODFILE CHECKSUM: c4c3e73b96b1c68acd761b05562b48847c75aff9
+PODFILE CHECKSUM: 9b7957a5cb1839220503019b32f217ac25085941
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

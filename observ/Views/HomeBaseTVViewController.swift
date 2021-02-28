@@ -11,38 +11,49 @@ import AVKit
 
 
 
-
-
 class HomeBaseTVViewController: UIViewController, UIViewControllerPreviewingDelegate {
 //    private var conductor: HomeConductor!
     public var articles:[Article] = []
     public var feedsTableView: UITableView!
+    public var articleType: Article.SiteType!
     
     fileprivate let refreshCtl = UIRefreshControl()
-    
+    private var presenter: HomePresenterInput!
+
+    func inject (presenter: HomePresenterInput) {
+        print("inject", presenter)
+        self.presenter = presenter
+    }
+
 
     override func viewDidLoad() {
-        print("HOMEBASE VC called")
+        print("HOMEBASE VC called", articleType, articles)
         super.viewDidLoad()
-        
+
+
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
 //        self.navigationController?.title = "Home"
+        
+
+
+        feedsTableView = UITableView(frame: view.frame)
+        feedsTableView.rowHeight = 200
+        feedsTableView.dataSource = self
+        feedsTableView.delegate = self
+        feedsTableView.backgroundColor = UIColor(hex: "EFEFEF")
+        self.view.backgroundColor = .blue
+
+        feedsTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        feedsTableView.separatorStyle = .none
+        feedsTableView.refreshControl = refreshCtl
+        self.view.addSubview(feedsTableView)
         
         // 3D Touchが使える端末か確認
         if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
             registerForPreviewing(with: self, sourceView: feedsTableView)
         }
 
-        feedsTableView = UITableView(frame: view.frame)
-        feedsTableView.frame = view.bounds
-        feedsTableView.backgroundColor = .green
-        feedsTableView.rowHeight = 200
-        feedsTableView.dataSource = self
-        feedsTableView.delegate = self
-        feedsTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        feedsTableView.separatorStyle = .none
-        feedsTableView.refreshControl = refreshCtl
-                
         refreshCtl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
         
         reload()
@@ -50,6 +61,11 @@ class HomeBaseTVViewController: UIViewController, UIViewControllerPreviewingDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        reload()
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//            self.navigationController?.navigationBar.prefersLargeTitles = false
+//        }
     }
     
     @objc func refresh(sender: UIRefreshControl){
@@ -71,6 +87,7 @@ extension HomeBaseTVViewController: HomePresenterOutput{
 
 extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("tableVIewNumberOFFFFF", self.articles.count)
         return self.articles.count
     }
     
@@ -107,9 +124,9 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
 
         AudioServicesPlaySystemSound(1520)
         if isStar{
-//            presenter.addStar(forRow: tag)
+            presenter.addStar(forRow: tag, articleType: articleType)
         }else{
-//            presenter.deleteStar(forRow: tag)
+            presenter.deleteStar(forRow: tag, articleType: articleType)
         }
     }
 

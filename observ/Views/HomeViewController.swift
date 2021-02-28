@@ -15,43 +15,54 @@ import Parchment
 //UIViewControllerPreviewingDelegate
 //class HomeViewController: TabPageViewController {
 class HomeViewController: UIViewController {
-    
+
 //    @IBOutlet weak var feedsTableView: UITableView!
     @IBOutlet weak var siteSegmentCtrl: UISegmentedControl!
     @IBOutlet weak var feedsBaseView: UIView!
     fileprivate let refreshCtl = UIRefreshControl()
-    
+    private var presenter: HomePresenterInput!
+
     private lazy var zenn: HomeBaseTVViewController = {
         let vc = HomeBaseTVViewController()
         vc.title = "zenn"
+        vc.articleType = .zenn
+        vc.inject(presenter: presenter)
         vc.articles = presenter.articles(site: .zenn)
-        vc.view.backgroundColor = .red
         add(asChildViewController: vc)
         return vc
     }()
     private lazy var hatena: HomeBaseTVViewController = {
         let vc = HomeBaseTVViewController()
         vc.title = "hatena"
+        vc.articleType = .hatena
+        vc.inject(presenter: presenter)
         vc.articles = presenter.articles(site: .hatena)
-        vc.view.backgroundColor = .blue
+        add(asChildViewController: vc)
+        return vc
+    }()
+    private lazy var qiita: HomeBaseTVViewController = {
+        let vc = HomeBaseTVViewController()
+        vc.title = "qiita"
+        vc.articleType = .qiita
+        vc.inject(presenter: presenter)
+        vc.articles = presenter.articles(site: .qiita)
         add(asChildViewController: vc)
         return vc
     }()
 
 
-    
-    private var presenter: HomePresenterInput!
-    
-    func inject (presenter: HomePresenterInput) {
+
+    func inject(presenter: HomePresenterInput) {
         print("inject", presenter)
         self.presenter = presenter
     }
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewdidload")
 
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.presenter = HomePresenter(view: self, model: StarModel())
         presenter.viewDidLoad()
 
@@ -59,11 +70,12 @@ class HomeViewController: UIViewController {
         let viewControllers = [
             hatena,
             zenn,
-            ContentViewController(index: 2),
+            qiita,
             ContentViewController(index: 3)
         ]
 
         let pagingViewController = PagingViewController(viewControllers: viewControllers)
+        pagingViewController.menuItemSize = .selfSizing(estimatedWidth: 100, height: 40)
 
         // Make sure you add the PagingViewController as a child view
         // controller and constrain it to the edges of the view.
@@ -73,39 +85,38 @@ class HomeViewController: UIViewController {
         pagingViewController.didMove(toParent: self)
 
 
-        
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationController?.title = "Home"
-        
+
         // 3D Touchが使える端末か確認
 //        if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
 //            registerForPreviewing(with: self, sourceView: feedsTableView)
 //        }
 
-        
+
 //        feedsTableView.dataSource = self
 //        feedsTableView.delegate = self
 //        feedsTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 //        feedsTableView.separatorStyle = .none
 //        feedsTableView.refreshControl = refreshCtl
-        
+
 //        refreshCtl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
-        
+
 //        conductor.feedsGet()
-                
+
     }
-    
-    
+
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        presenter.reloadFeeds()
     }
-    
-    @objc func refresh(sender: UIRefreshControl){
+
+    @objc func refresh(sender: UIRefreshControl) {
 //        conductor.reloadFeeds()
         self.presenter.reloadFeeds()
     }
-    
+
     private func add(asChildViewController viewController: UIViewController) {
         // 子ViewControllerを追加
         addChild(viewController)
@@ -126,9 +137,11 @@ class HomeViewController: UIViewController {
         // 子View Controllerへの通知
         viewController.removeFromParent()
     }
+
     @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
-           updateView()
-       }
+        updateView()
+    }
+
     private func updateView() {
         if siteSegmentCtrl.selectedSegmentIndex == 0 {
             remove(asChildViewController: hatena)
@@ -141,20 +154,18 @@ class HomeViewController: UIViewController {
         }
     }
 
-    
 
-    
 }
 
-extension HomeViewController: HomePresenterOutput{
-    func reload(){
+extension HomeViewController: HomePresenterOutput {
+    func reload() {
         print("VIEWCONTRLLER RELOAD!!!!!!!!!!!!!")
         refreshCtl.endRefreshing()
         zenn.reload()
         hatena.reload()
 //        feedsTableView.reloadData()
     }
-    
+
 }
 
 //extension HomeViewController: PagingViewControllerDataSource {
@@ -175,36 +186,34 @@ extension HomeViewController: HomePresenterOutput{
 
 
 final class ContentViewController: UIViewController {
-  convenience init(index: Int) {
-    self.init(title: "View \(index)", content: "\(index)")
-  }
-  
-  convenience init(title: String) {
-    self.init(title: title, content: title)
-  }
-  
-  init(title: String, content: String) {
-    super.init(nibName: nil, bundle: nil)
-    self.title = title
-    
-    let label = UILabel(frame: .zero)
-    label.font = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.thin)
-    label.textColor = UIColor(red: 95/255, green: 102/255, blue: 108/255, alpha: 1)
-    label.textAlignment = .center
-    label.text = content
-    label.sizeToFit()
-    
-    view.addSubview(label)
+    convenience init(index: Int) {
+        self.init(title: "View \(index)", content: "\(index)")
+    }
+
+    convenience init(title: String) {
+        self.init(title: title, content: title)
+    }
+
+    init(title: String, content: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.thin)
+        label.textColor = UIColor(red: 95 / 255, green: 102 / 255, blue: 108 / 255, alpha: 1)
+        label.textAlignment = .center
+        label.text = content
+        label.sizeToFit()
+
+        view.addSubview(label)
 //    view.constrainToEdges(label)
-    view.backgroundColor = .white
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+        view.backgroundColor = .yellow
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
-
-
 
 
 //extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
@@ -250,7 +259,7 @@ final class ContentViewController: UIViewController {
 //            presenter.deleteStar(forRow: tag)
 //        }
 //    }
-    
+
 //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 //        if velocity.y > 0 {
 //            //上下のバーを隠す
@@ -307,9 +316,8 @@ final class ContentViewController: UIViewController {
 //        self.navigationController?.navigationBar.frame = topBarRect!
 //        })
 //    }
-    
-//}
 
+//}
 
 
 //extension HomeViewController{

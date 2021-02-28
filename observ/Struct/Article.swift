@@ -9,27 +9,27 @@ import Foundation
 import UIKit
 
 
-public struct Article: Codable{
+public struct Article: Codable {
     var title: String = ""
     var preview: String = ""
     var url: String = ""
     var date: Date = Date()
     var image: Data? = nil
     var site: SiteType = .other
-    
-    public enum SiteType: String, Codable{
+
+    public enum SiteType: String, Codable {
         case zenn
         case qiita
         case note
         case hatena
         case other
-        
+
     }
 
 }
 
-extension Article.SiteType{
-    func lineColor() -> UIColor{
+extension Article.SiteType {
+    func lineColor() -> UIColor {
         switch self {
         case .zenn:
             return UIColor(hex: "5086FF")
@@ -42,18 +42,20 @@ extension Article.SiteType{
         }
     }
 
-    func getUrl() -> String{
+    func getUrl() -> String {
         switch self {
         case .zenn:
             return "https://zenn.dev/feed"
         case .hatena:
             return "https://b.hatena.ne.jp/hotentry/it.rss"
+        case .qiita:
+            return "https://qiita.com/popular-items/feed.atom"
         default:
             return ""
         }
     }
 
-    func getImage(size: CGSize) -> UIImage{
+    func getImage(size: CGSize) -> UIImage {
         switch self {
         case .zenn:
             let img = UIImage(named: "zenn-light")!

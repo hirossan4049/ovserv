@@ -36,36 +36,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxX-0k-QaO">
-                                <rect key="frame" x="0.0" y="135" width="414" height="678"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F2m-3d-8GA">
-                                <rect key="frame" x="8" y="96" width="123" height="32"/>
-                                <segments>
-                                    <segment title="zenn"/>
-                                    <segment title="hatena"/>
-                                </segments>
-                                <connections>
-                                    <action selector="tapSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="HiR-mO-uoy"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="F2m-3d-8GA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="7Ex-u3-NmO"/>
+                            <constraint firstAttribute="bottom" secondItem="RxX-0k-QaO" secondAttribute="bottom" id="Hum-P2-jrc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RxX-0k-QaO" secondAttribute="trailing" id="PZj-8l-Vc7"/>
                             <constraint firstItem="RxX-0k-QaO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QhC-PU-Nyz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RxX-0k-QaO" secondAttribute="bottom" id="RVz-tD-Y5K"/>
-                            <constraint firstItem="F2m-3d-8GA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="aa9-wW-9J6"/>
-                            <constraint firstItem="RxX-0k-QaO" firstAttribute="top" secondItem="F2m-3d-8GA" secondAttribute="bottom" constant="8" id="tsI-1I-iYv"/>
+                            <constraint firstItem="RxX-0k-QaO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sLR-MK-ubT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="home_" id="ofF-Pp-WwJ"/>
                     <navigationItem key="navigationItem" title="Home" id="rAR-rN-S4U"/>
                     <connections>
                         <outlet property="feedsBaseView" destination="RxX-0k-QaO" id="6qt-7Y-Rnp"/>
-                        <outlet property="siteSegmentCtrl" destination="F2m-3d-8GA" id="Cr6-ih-fuh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

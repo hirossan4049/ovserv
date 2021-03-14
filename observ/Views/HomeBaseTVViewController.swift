@@ -11,7 +11,8 @@ import AVKit
 
 
 
-class HomeBaseTVViewController: UIViewController, UIViewControllerPreviewingDelegate {
+//class HomeBaseTVViewController: UIViewController, UIViewControllerPreviewingDelegate {
+class HomeBaseTVViewController: UIViewController {
 //    private var conductor: HomeConductor!
     public var articles:[Article] = []
     public var feedsTableView: UITableView!
@@ -50,9 +51,9 @@ class HomeBaseTVViewController: UIViewController, UIViewControllerPreviewingDele
         self.view.addSubview(feedsTableView)
         
         // 3D Touchが使える端末か確認
-        if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
-            registerForPreviewing(with: self, sourceView: feedsTableView)
-        }
+//        if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
+//            registerForPreviewing(with: self, sourceView: feedsTableView)
+//        }
 
         refreshCtl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
         
@@ -119,6 +120,36 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
         present(safariVC, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+        // ①プレビューの定義
+        let previewProvider: () -> SFSafariViewController? = { [unowned self] in
+            return SFSafariViewController(url: NSURL(string: self.articles[indexPath.row].url)! as URL)
+        }
+
+        // ②メニューの定義
+        let actionProvider: ([UIMenuElement]) -> UIMenu? = { _ in
+            let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { _ in
+                // some action
+            }
+            let editMenu: UIMenu = {
+                let copy = UIAction(title: "Copy", image: nil) { _ in
+                    // some action
+                }
+                let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), identifier: nil) { _ in
+                    // some action
+                }
+                return UIMenu(title: "Edit..", image: nil, identifier: nil, children: [copy, delete])
+            }()
+
+            return UIMenu(title: "Edit..", image: nil, identifier: nil, children: [share, editMenu])
+        }
+
+        return UIContextMenuConfiguration(identifier: nil,
+                                          previewProvider: previewProvider,
+                                          actionProvider: actionProvider)
+    }
+    
     func starClicked(_ tag: Int, _ isStar: Bool){
         print(tag, isStar)
 
@@ -137,24 +168,26 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension HomeBaseTVViewController{
     // MARK: 3DTouch
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        present(viewControllerToCommit, animated: true, completion: nil)
-    }
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//        present(viewControllerToCommit, animated: true, completion: nil)
+//    }
+//
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//        print("3D Touched!")
+//        let indexPath = feedsTableView.indexPathForRow(at: location)!
+//
+//        if (indexPath != nil){
+//            let safariVC = SFSafariViewController(url: NSURL(string: self.articles[indexPath.row].url)! as URL)
+////            secondViewController.PREVIEW_MODE = true
+//            return safariVC
+//
+//        }else if(false){
+//            // floating button
+//
+//        }else{
+//            return nil
+//        }
+//    }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        print("3D Touched!")
-        let indexPath = feedsTableView.indexPathForRow(at: location)!
-        
-        if (indexPath != nil){
-            let safariVC = SFSafariViewController(url: NSURL(string: self.articles[indexPath.row].url)! as URL)
-//            secondViewController.PREVIEW_MODE = true
-            return safariVC
-            
-        }else if(false){
-            // floating button
-            
-        }else{
-            return nil
-        }
-    }
+
 }

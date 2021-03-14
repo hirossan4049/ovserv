@@ -63,6 +63,7 @@ class HomeViewController: UIViewController {
         print("viewdidload")
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.presenter = HomePresenter(view: self, model: StarModel())
         presenter.viewDidLoad()
 

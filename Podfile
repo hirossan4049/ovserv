@@ -5,8 +5,11 @@ target 'observ' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'PTCardTabBar'
-  pod 'Loaf'
+  pod 'PTCardTabBar'        # TabBar
+  pod 'Loaf'                # Toast
+  pod 'Parchment', '~> 3.0' # 
+  pod 'FeedKit', '~> 9.0'   # RSS
+
   # Pods for observ
 
   target 'observTests' do

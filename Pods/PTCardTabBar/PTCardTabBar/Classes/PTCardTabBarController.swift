@@ -25,7 +25,7 @@ open class PTCardTabBarController: UITabBarController {
         }
     }
     
-    lazy var customTabBar: PTCardTabBar = {
+    public lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
     

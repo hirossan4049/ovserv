@@ -38,8 +38,10 @@ class RSS: NSObject, XMLParserDelegate {
                 let parser = SwiftXMLParser()
                 let dic = parser.makeDic(data: data)
                 print("XML parserd!!!!!!!!!!!")
-                dump((dic as! NSDictionary).value(forKey: "rss"))
-                
+                dump((dic as! NSDictionary).value(forKey: "rss.channel.item"))
+                dump(dic)
+                raise(1)
+
             } catch let error {
                 print(error)
             }

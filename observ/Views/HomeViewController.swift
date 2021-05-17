@@ -155,7 +155,6 @@ class HomeViewController: UIViewController {
         }
     }
 
-
 }
 
 extension HomeViewController: HomePresenterOutput {
@@ -215,6 +214,7 @@ final class ContentViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 
 //extension HomeViewController: UITableViewDataSource, UITableViewDelegate{

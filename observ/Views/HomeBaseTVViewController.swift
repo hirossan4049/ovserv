@@ -8,6 +8,7 @@
 import UIKit
 import SafariServices
 import AVKit
+import OpenGraph
 
 
 
@@ -15,6 +16,7 @@ import AVKit
 class HomeBaseTVViewController: UIViewController {
 //    private var conductor: HomeConductor!
     public var articles:[Article] = []
+    private var articleOGPs: [String: UIImage] = [:]
     public var feedsTableView: UITableView!
     public var articleType: Article.SiteType!
     
@@ -28,7 +30,7 @@ class HomeBaseTVViewController: UIViewController {
 
 
     override func viewDidLoad() {
-        print("HOMEBASE VC called", articleType, articles)
+//        print("HOMEBASE VC called", articleType, articles)
         super.viewDidLoad()
 
 
@@ -39,7 +41,8 @@ class HomeBaseTVViewController: UIViewController {
 
 
         feedsTableView = UITableView(frame: view.frame)
-        feedsTableView.rowHeight = 200
+//        feedsTableView.rowHeight = 200
+        feedsTableView.rowHeight = UITableView.automaticDimension
         feedsTableView.dataSource = self
         feedsTableView.delegate = self
         feedsTableView.backgroundColor = UIColor(hex: "EFEFEF")
@@ -96,9 +99,48 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
         let article = articles[indexPath.row]
         cell.titleLabel.text = article.title
+        cell.titleLabel.sizeToFit()
         cell.descriptionLabel.text = article.preview
-//        cell.lineView.backgroundColor = article.lineColor()
+        cell.descriptionLabel.sizeToFit()
+        
+        cell.ogpImageView.clipsToBounds = true
+        cell.ogpImageView.layer.cornerRadius = 7
+        cell.ogpImageView.contentMode = .scaleAspectFill
+        
         cell.starClickFn = self.starClicked
+//        print("image is ", article.imageURL ?? "")
+        if let imageURL = article.imageURL {
+            cell.ogpImageView.image = UIImage(url: imageURL)
+        }
+        if let articleImage = articleOGPs[article.url] {
+            cell.ogpImgViewHeight.constant = 190
+            cell.ogpImageView.image = articleImage
+        }else {
+            cell.ogpImgViewHeight.constant = 0
+            OpenGraph.fetch(url: URL(string: article.url)!) { result in
+                switch result {
+                case .success(let og):
+    //                print(og[.image])
+                    DispatchQueue.main.async {
+                        if let imgURL = og[.image] {
+                            let image = UIImage(url:  imgURL)
+                            cell.ogpImgViewHeight.constant = 190
+                            cell.layoutIfNeeded()
+                            cell.ogpImageView.image = image
+                            self.articleOGPs[article.url] = image
+                        }else {
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                    DispatchQueue.main.async {
+
+                    }
+                }
+            }
+        }
+        
+        cell.ogpImageView.sizeToFit()
         cell.tag = indexPath.row
         
         cell.logoView?.image = article.site.getImage(size: cell.logoSize)
@@ -159,6 +201,11 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
         }else{
             presenter.deleteStar(forRow: tag, articleType: articleType)
         }
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.navigationController?.navigationBar.prefersLargeTitles = scrollView.contentOffset.y < 100
     }
 
     

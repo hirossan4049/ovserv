@@ -15,6 +15,8 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak var ogpImageView: UIImageView!
+    @IBOutlet weak var ogpImgViewHeight: NSLayoutConstraint!
 
     public let logoSize = CGSize(width: 18.5, height: 18.5)
     public var starClickFn: ((Int, Bool) -> ())!
@@ -37,6 +39,8 @@ class ArticleTableViewCell: UITableViewCell {
         backView.layer.shadowColor = UIColor.darkGray.cgColor
         self.backgroundColor = UIColor(hex: "EFEFEF")
         lineView.isHidden = true
+        
+
 
 //        self.backView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
 //        self.backView.layer.shadowColor = UIColor.black.cgColor

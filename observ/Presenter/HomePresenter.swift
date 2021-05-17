@@ -83,7 +83,6 @@ final class HomePresenter: HomePresenterInput {
     func reloadFeeds() {
         self.feeds = []
         self.feedsGet()
-        print(feeds)
         view.reload()
     }
 

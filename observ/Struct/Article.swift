@@ -14,7 +14,7 @@ public struct Article: Codable {
     var preview: String = ""
     var url: String = ""
     var date: Date = Date()
-    var image: Data? = nil
+    var imageURL: String?
     var site: SiteType = .other
 
     public enum SiteType: String, Codable {

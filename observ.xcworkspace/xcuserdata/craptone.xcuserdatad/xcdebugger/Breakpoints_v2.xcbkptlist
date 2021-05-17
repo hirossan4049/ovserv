@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "412A2B99-821D-4DEF-8F06-0F012DBE81B6"
+            uuid = "66775F7B-4579-4DC4-A854-9481E814E354"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "observ/Views/HomeViewController.swift"
+            filePath = "observ/rss/RSS.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "updateView()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "start(finished:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

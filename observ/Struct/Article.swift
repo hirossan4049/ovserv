@@ -63,6 +63,8 @@ extension Article.SiteType {
             return img
         case .hatena:
             return UIImage(named: "hatebu-light")!
+        case .qiita:
+            return UIImage(named: "qiita")!
         default:
             return UIImage(named: "zenn-light")!
         }

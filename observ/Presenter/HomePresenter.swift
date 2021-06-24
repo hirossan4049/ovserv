@@ -55,7 +55,7 @@ final class HomePresenter: HomePresenterInput {
 
     func feedsGet() {
         // FIXME 一気に zenn, hatena, qiitaを取得するのではなく、えいうおｆじぇふぇいじぇｆｊふぇ
-        let getArticles: [Article.SiteType] = [.zenn, .hatena]
+        let getArticles: [Article.SiteType] = [.zenn, .hatena, .qiita]
 
         for article in getArticles {
             let rss = RSS(article)

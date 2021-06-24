@@ -112,33 +112,33 @@ extension HomeBaseTVViewController: UITableViewDataSource, UITableViewDelegate{
         if let imageURL = article.imageURL {
             cell.ogpImageView.image = UIImage(url: imageURL)
         }
-        if let articleImage = articleOGPs[article.url] {
-            cell.ogpImgViewHeight.constant = 190
-            cell.ogpImageView.image = articleImage
-        }else {
-            cell.ogpImgViewHeight.constant = 0
-            OpenGraph.fetch(url: URL(string: article.url)!) { result in
-                switch result {
-                case .success(let og):
-    //                print(og[.image])
-                    DispatchQueue.main.async {
-                        if let imgURL = og[.image] {
-                            let image = UIImage(url:  imgURL)
-                            cell.ogpImgViewHeight.constant = 190
-                            cell.layoutIfNeeded()
-                            cell.ogpImageView.image = image
-                            self.articleOGPs[article.url] = image
-                        }else {
-                        }
-                    }
-                case .failure(let error):
-                    print(error)
-                    DispatchQueue.main.async {
-
-                    }
-                }
-            }
-        }
+//        if let articleImage = articleOGPs[article.url] {
+//            cell.ogpImgViewHeight.constant = 190
+//            cell.ogpImageView.image = articleImage
+//        }else {
+//            cell.ogpImgViewHeight.constant = 0
+//            OpenGraph.fetch(url: URL(string: article.url)!) { result in
+//                switch result {
+//                case .success(let og):
+//    //                print(og[.image])
+//                    DispatchQueue.main.async {
+//                        if let imgURL = og[.image] {
+//                            let image = UIImage(url:  imgURL)
+//                            cell.ogpImgViewHeight.constant = 190
+//                            cell.layoutIfNeeded()
+//                            cell.ogpImageView.image = image
+//                            self.articleOGPs[article.url] = image
+//                        }else {
+//                        }
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                    DispatchQueue.main.async {
+//
+//                    }
+//                }
+//            }
+//        }
         
         cell.ogpImageView.sizeToFit()
         cell.tag = indexPath.row

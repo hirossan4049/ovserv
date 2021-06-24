@@ -30,14 +30,10 @@ class HomeBaseTVViewController: UIViewController {
 
 
     override func viewDidLoad() {
-//        print("HOMEBASE VC called", articleType, articles)
         super.viewDidLoad()
-
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
-//        self.navigationController?.title = "Home"
-        
 
 
         feedsTableView = UITableView(frame: view.frame)
@@ -52,11 +48,6 @@ class HomeBaseTVViewController: UIViewController {
         feedsTableView.separatorStyle = .none
         feedsTableView.refreshControl = refreshCtl
         self.view.addSubview(feedsTableView)
-        
-        // 3D Touchが使える端末か確認
-//        if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available {
-//            registerForPreviewing(with: self, sourceView: feedsTableView)
-//        }
 
         refreshCtl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
         

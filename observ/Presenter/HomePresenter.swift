@@ -46,7 +46,6 @@ final class HomePresenter: HomePresenterInput {
     }
 
     func addStar(forRow row: Int, articleType: Article.SiteType) {
-        print("Add STAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         self.model.addStar(article: articles(site: articleType)[row])
     }
 
@@ -55,6 +54,7 @@ final class HomePresenter: HomePresenterInput {
     }
 
     func feedsGet() {
+        // FIXME 一気に zenn, hatena, qiitaを取得するのではなく、えいうおｆじぇふぇいじぇｆｊふぇ
         let getArticles: [Article.SiteType] = [.zenn, .hatena]
 
         for article in getArticles {
